@@ -29,40 +29,203 @@ namespace AppSD
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnReporte = new System.Windows.Forms.Button();
-            this.txtIdentificacion = new System.Windows.Forms.MaskedTextBox();
-            this.txtFechaFin = new System.Windows.Forms.MaskedTextBox();
-            this.txtFechaIni = new System.Windows.Forms.MaskedTextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvDescuentos = new System.Windows.Forms.DataGridView();
-            this.dgvIndexados = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cb = new System.Windows.Forms.ComboBox();
-            this.btnIndexar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.contenedor = new System.Windows.Forms.TabControl();
-            this.contenDesc = new System.Windows.Forms.TabPage();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.contenTotalTerceros = new System.Windows.Forms.TabPage();
             this.contenIpc = new System.Windows.Forms.TabPage();
-            this.dgvIpc = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDescuentos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvIndexados)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.contenedor.SuspendLayout();
-            this.contenDesc.SuspendLayout();
+            this.dgvIpc = new System.Windows.Forms.DataGridView();
+            this.contenDesc = new System.Windows.Forms.TabPage();
+            this.dgvDescuentos = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnIndexar = new System.Windows.Forms.Button();
+            this.cb = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dgvIndexados = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtFechaIni = new System.Windows.Forms.MaskedTextBox();
+            this.txtFechaFin = new System.Windows.Forms.MaskedTextBox();
+            this.txtIdentificacion = new System.Windows.Forms.MaskedTextBox();
+            this.btnReporte = new System.Windows.Forms.Button();
+            this.contenedor = new System.Windows.Forms.TabControl();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnPdfTerceros = new System.Windows.Forms.Button();
+            this.fechaFinTerceros = new System.Windows.Forms.MaskedTextBox();
+            this.fechaIniTerceros = new System.Windows.Forms.MaskedTextBox();
+            this.btnBuscarTerceros = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dgvDescuentosTerceros = new System.Windows.Forms.DataGridView();
+            this.contenTotalTerceros.SuspendLayout();
             this.contenIpc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIpc)).BeginInit();
+            this.contenDesc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDescuentos)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIndexados)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.contenedor.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDescuentosTerceros)).BeginInit();
             this.SuspendLayout();
+            // 
+            // contenTotalTerceros
+            // 
+            this.contenTotalTerceros.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.contenTotalTerceros.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.contenTotalTerceros.Controls.Add(this.dgvDescuentosTerceros);
+            this.contenTotalTerceros.Controls.Add(this.groupBox4);
+            this.contenTotalTerceros.Location = new System.Drawing.Point(4, 22);
+            this.contenTotalTerceros.Name = "contenTotalTerceros";
+            this.contenTotalTerceros.Padding = new System.Windows.Forms.Padding(3);
+            this.contenTotalTerceros.Size = new System.Drawing.Size(997, 636);
+            this.contenTotalTerceros.TabIndex = 2;
+            this.contenTotalTerceros.Text = "Actualizacion por Terceros";
+            // 
+            // contenIpc
+            // 
+            this.contenIpc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.contenIpc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.contenIpc.Controls.Add(this.dgvIpc);
+            this.contenIpc.Controls.Add(this.groupBox3);
+            this.contenIpc.Location = new System.Drawing.Point(4, 22);
+            this.contenIpc.Name = "contenIpc";
+            this.contenIpc.Padding = new System.Windows.Forms.Padding(3);
+            this.contenIpc.Size = new System.Drawing.Size(997, 636);
+            this.contenIpc.TabIndex = 1;
+            this.contenIpc.Text = "IPC";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(82, 43);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(451, 72);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "IPC";
+            // 
+            // dgvIpc
+            // 
+            this.dgvIpc.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvIpc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIpc.Location = new System.Drawing.Point(82, 130);
+            this.dgvIpc.Name = "dgvIpc";
+            this.dgvIpc.Size = new System.Drawing.Size(451, 478);
+            this.dgvIpc.TabIndex = 1;
+            this.dgvIpc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIpc_CellContentClick);
+            // 
+            // contenDesc
+            // 
+            this.contenDesc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.contenDesc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.contenDesc.Controls.Add(this.groupBox1);
+            this.contenDesc.Controls.Add(this.dgvIndexados);
+            this.contenDesc.Controls.Add(this.label4);
+            this.contenDesc.Controls.Add(this.groupBox2);
+            this.contenDesc.Controls.Add(this.dgvDescuentos);
+            this.contenDesc.Location = new System.Drawing.Point(4, 22);
+            this.contenDesc.Name = "contenDesc";
+            this.contenDesc.Padding = new System.Windows.Forms.Padding(3);
+            this.contenDesc.Size = new System.Drawing.Size(997, 636);
+            this.contenDesc.TabIndex = 0;
+            this.contenDesc.Text = "Actualizacion General";
+            // 
+            // dgvDescuentos
+            // 
+            this.dgvDescuentos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvDescuentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDescuentos.Location = new System.Drawing.Point(28, 86);
+            this.dgvDescuentos.Name = "dgvDescuentos";
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDescuentos.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvDescuentos.Size = new System.Drawing.Size(916, 199);
+            this.dgvDescuentos.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.cb);
+            this.groupBox2.Controls.Add(this.btnIndexar);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Location = new System.Drawing.Point(28, 303);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(910, 68);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Parametros de Indexacion";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(43, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Periodo";
+            // 
+            // btnIndexar
+            // 
+            this.btnIndexar.Location = new System.Drawing.Point(292, 21);
+            this.btnIndexar.Name = "btnIndexar";
+            this.btnIndexar.Size = new System.Drawing.Size(83, 30);
+            this.btnIndexar.TabIndex = 9;
+            this.btnIndexar.Text = "Actualizar";
+            this.btnIndexar.UseVisualStyleBackColor = true;
+            this.btnIndexar.Click += new System.EventHandler(this.btnIndexar_Click);
+            // 
+            // cb
+            // 
+            this.cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb.FormattingEnabled = true;
+            this.cb.Location = new System.Drawing.Point(92, 27);
+            this.cb.Name = "cb";
+            this.cb.Size = new System.Drawing.Size(174, 21);
+            this.cb.TabIndex = 10;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(466, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 30);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Reporte PDF";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(371, 389);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(221, 24);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Descuentos Actualizados";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // dgvIndexados
+            // 
+            this.dgvIndexados.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvIndexados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvIndexados.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvIndexados.Location = new System.Drawing.Point(28, 416);
+            this.dgvIndexados.Name = "dgvIndexados";
+            this.dgvIndexados.Size = new System.Drawing.Size(916, 199);
+            this.dgvIndexados.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -81,40 +244,32 @@ namespace AppSD
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parametros de Busqueda";
             // 
-            // btnReporte
+            // label1
             // 
-            this.btnReporte.Location = new System.Drawing.Point(733, 30);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(115, 30);
-            this.btnReporte.TabIndex = 11;
-            this.btnReporte.Text = "Reporte PDF";
-            this.btnReporte.UseVisualStyleBackColor = true;
-            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Fecha Inicial";
             // 
-            // txtIdentificacion
+            // label2
             // 
-            this.txtIdentificacion.Location = new System.Drawing.Point(420, 36);
-            this.txtIdentificacion.Mask = "99999999999";
-            this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(111, 20);
-            this.txtIdentificacion.TabIndex = 10;
-            this.txtIdentificacion.ValidatingType = typeof(int);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(188, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Fecha Final";
             // 
-            // txtFechaFin
+            // label3
             // 
-            this.txtFechaFin.Location = new System.Drawing.Point(258, 36);
-            this.txtFechaFin.Mask = "0000-00-00";
-            this.txtFechaFin.Name = "txtFechaFin";
-            this.txtFechaFin.Size = new System.Drawing.Size(65, 20);
-            this.txtFechaFin.TabIndex = 9;
-            // 
-            // txtFechaIni
-            // 
-            this.txtFechaIni.Location = new System.Drawing.Point(97, 36);
-            this.txtFechaIni.Mask = "####-##-##";
-            this.txtFechaIni.Name = "txtFechaIni";
-            this.txtFechaIni.Size = new System.Drawing.Size(65, 20);
-            this.txtFechaIni.TabIndex = 8;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(344, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Identificacion";
             // 
             // btnBuscar
             // 
@@ -126,191 +281,129 @@ namespace AppSD
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // label3
+            // txtFechaIni
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(344, 38);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Identificacion";
+            this.txtFechaIni.Location = new System.Drawing.Point(97, 36);
+            this.txtFechaIni.Mask = "####-##-##";
+            this.txtFechaIni.Name = "txtFechaIni";
+            this.txtFechaIni.Size = new System.Drawing.Size(65, 20);
+            this.txtFechaIni.TabIndex = 8;
             // 
-            // label2
+            // txtFechaFin
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(188, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Fecha Final";
+            this.txtFechaFin.Location = new System.Drawing.Point(258, 36);
+            this.txtFechaFin.Mask = "0000-00-00";
+            this.txtFechaFin.Name = "txtFechaFin";
+            this.txtFechaFin.Size = new System.Drawing.Size(65, 20);
+            this.txtFechaFin.TabIndex = 9;
             // 
-            // label1
+            // txtIdentificacion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Fecha Inicial";
+            this.txtIdentificacion.Location = new System.Drawing.Point(420, 36);
+            this.txtIdentificacion.Mask = "99999999999";
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(111, 20);
+            this.txtIdentificacion.TabIndex = 10;
+            this.txtIdentificacion.ValidatingType = typeof(int);
             // 
-            // dgvDescuentos
+            // btnReporte
             // 
-            this.dgvDescuentos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvDescuentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDescuentos.Location = new System.Drawing.Point(28, 86);
-            this.dgvDescuentos.Name = "dgvDescuentos";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDescuentos.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDescuentos.Size = new System.Drawing.Size(916, 199);
-            this.dgvDescuentos.TabIndex = 1;
-            // 
-            // dgvIndexados
-            // 
-            this.dgvIndexados.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvIndexados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvIndexados.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvIndexados.Location = new System.Drawing.Point(28, 416);
-            this.dgvIndexados.Name = "dgvIndexados";
-            this.dgvIndexados.Size = new System.Drawing.Size(916, 199);
-            this.dgvIndexados.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(371, 389);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(221, 24);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Descuentos Actualizados";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.cb);
-            this.groupBox2.Controls.Add(this.btnIndexar);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(28, 303);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(910, 68);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Parametros de Indexacion";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(466, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 30);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Reporte PDF";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // cb
-            // 
-            this.cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb.FormattingEnabled = true;
-            this.cb.Location = new System.Drawing.Point(92, 27);
-            this.cb.Name = "cb";
-            this.cb.Size = new System.Drawing.Size(174, 21);
-            this.cb.TabIndex = 10;
-            // 
-            // btnIndexar
-            // 
-            this.btnIndexar.Location = new System.Drawing.Point(292, 21);
-            this.btnIndexar.Name = "btnIndexar";
-            this.btnIndexar.Size = new System.Drawing.Size(83, 30);
-            this.btnIndexar.TabIndex = 9;
-            this.btnIndexar.Text = "Actualizar";
-            this.btnIndexar.UseVisualStyleBackColor = true;
-            this.btnIndexar.Click += new System.EventHandler(this.btnIndexar_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(43, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Periodo";
+            this.btnReporte.Location = new System.Drawing.Point(733, 30);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(115, 30);
+            this.btnReporte.TabIndex = 11;
+            this.btnReporte.Text = "Reporte PDF";
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // contenedor
             // 
             this.contenedor.Controls.Add(this.contenDesc);
             this.contenedor.Controls.Add(this.contenIpc);
-            this.contenedor.Controls.Add(this.tabPage1);
+            this.contenedor.Controls.Add(this.contenTotalTerceros);
             this.contenedor.Location = new System.Drawing.Point(32, 12);
             this.contenedor.Name = "contenedor";
             this.contenedor.SelectedIndex = 0;
             this.contenedor.Size = new System.Drawing.Size(1005, 662);
             this.contenedor.TabIndex = 5;
             // 
-            // contenDesc
+            // groupBox4
             // 
-            this.contenDesc.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.contenDesc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.contenDesc.Controls.Add(this.groupBox1);
-            this.contenDesc.Controls.Add(this.dgvIndexados);
-            this.contenDesc.Controls.Add(this.label4);
-            this.contenDesc.Controls.Add(this.groupBox2);
-            this.contenDesc.Controls.Add(this.dgvDescuentos);
-            this.contenDesc.Location = new System.Drawing.Point(4, 22);
-            this.contenDesc.Name = "contenDesc";
-            this.contenDesc.Padding = new System.Windows.Forms.Padding(3);
-            this.contenDesc.Size = new System.Drawing.Size(997, 636);
-            this.contenDesc.TabIndex = 0;
-            this.contenDesc.Text = "Descuentos";
+            this.groupBox4.Controls.Add(this.btnPdfTerceros);
+            this.groupBox4.Controls.Add(this.fechaFinTerceros);
+            this.groupBox4.Controls.Add(this.fechaIniTerceros);
+            this.groupBox4.Controls.Add(this.btnBuscarTerceros);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Location = new System.Drawing.Point(34, 19);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(916, 74);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Parametros de Busqueda";
             // 
-            // contenIpc
+            // btnPdfTerceros
             // 
-            this.contenIpc.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.contenIpc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.contenIpc.Controls.Add(this.dgvIpc);
-            this.contenIpc.Controls.Add(this.groupBox3);
-            this.contenIpc.Location = new System.Drawing.Point(4, 22);
-            this.contenIpc.Name = "contenIpc";
-            this.contenIpc.Padding = new System.Windows.Forms.Padding(3);
-            this.contenIpc.Size = new System.Drawing.Size(997, 636);
-            this.contenIpc.TabIndex = 1;
-            this.contenIpc.Text = "IPC";
+            this.btnPdfTerceros.Location = new System.Drawing.Point(557, 28);
+            this.btnPdfTerceros.Name = "btnPdfTerceros";
+            this.btnPdfTerceros.Size = new System.Drawing.Size(115, 31);
+            this.btnPdfTerceros.TabIndex = 11;
+            this.btnPdfTerceros.Text = "Reporte PDF";
+            this.btnPdfTerceros.UseVisualStyleBackColor = true;
             // 
-            // dgvIpc
+            // fechaFinTerceros
             // 
-            this.dgvIpc.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvIpc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIpc.Location = new System.Drawing.Point(82, 167);
-            this.dgvIpc.Name = "dgvIpc";
-            this.dgvIpc.Size = new System.Drawing.Size(451, 478);
-            this.dgvIpc.TabIndex = 1;
+            this.fechaFinTerceros.Location = new System.Drawing.Point(258, 36);
+            this.fechaFinTerceros.Mask = "0000-00-00";
+            this.fechaFinTerceros.Name = "fechaFinTerceros";
+            this.fechaFinTerceros.Size = new System.Drawing.Size(65, 20);
+            this.fechaFinTerceros.TabIndex = 9;
             // 
-            // groupBox3
+            // fechaIniTerceros
             // 
-            this.groupBox3.Location = new System.Drawing.Point(82, 43);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(451, 72);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "IPC";
+            this.fechaIniTerceros.Location = new System.Drawing.Point(97, 36);
+            this.fechaIniTerceros.Mask = "####-##-##";
+            this.fechaIniTerceros.Name = "fechaIniTerceros";
+            this.fechaIniTerceros.Size = new System.Drawing.Size(65, 20);
+            this.fechaIniTerceros.TabIndex = 8;
             // 
-            // tabPage1
+            // btnBuscarTerceros
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(997, 636);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
+            this.btnBuscarTerceros.Location = new System.Drawing.Point(404, 29);
+            this.btnBuscarTerceros.Name = "btnBuscarTerceros";
+            this.btnBuscarTerceros.Size = new System.Drawing.Size(83, 30);
+            this.btnBuscarTerceros.TabIndex = 6;
+            this.btnBuscarTerceros.Text = "Buscar";
+            this.btnBuscarTerceros.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(188, 38);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Fecha Final";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(24, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Fecha Inicial";
+            // 
+            // dgvDescuentosTerceros
+            // 
+            this.dgvDescuentosTerceros.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvDescuentosTerceros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDescuentosTerceros.Location = new System.Drawing.Point(34, 99);
+            this.dgvDescuentosTerceros.Name = "dgvDescuentosTerceros";
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDescuentosTerceros.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            this.dgvDescuentosTerceros.Size = new System.Drawing.Size(916, 199);
+            this.dgvDescuentosTerceros.TabIndex = 2;
             // 
             // Form1
             // 
@@ -320,46 +413,59 @@ namespace AppSD
             this.Controls.Add(this.contenedor);
             this.Name = "Form1";
             this.Text = "Indexacion Descuentos Sobretasa Deportiva";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDescuentos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvIndexados)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.contenedor.ResumeLayout(false);
-            this.contenDesc.ResumeLayout(false);
-            this.contenDesc.PerformLayout();
+            this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.contenTotalTerceros.ResumeLayout(false);
             this.contenIpc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvIpc)).EndInit();
+            this.contenDesc.ResumeLayout(false);
+            this.contenDesc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDescuentos)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIndexados)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.contenedor.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDescuentosTerceros)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.TabPage contenTotalTerceros;
+        private System.Windows.Forms.TabPage contenIpc;
+        private System.Windows.Forms.DataGridView dgvIpc;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TabPage contenDesc;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.MaskedTextBox txtIdentificacion;
+        private System.Windows.Forms.MaskedTextBox txtFechaFin;
+        private System.Windows.Forms.MaskedTextBox txtFechaIni;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvDescuentos;
         private System.Windows.Forms.DataGridView dgvIndexados;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cb;
         private System.Windows.Forms.Button btnIndexar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cb;
-        private System.Windows.Forms.MaskedTextBox txtFechaFin;
-        private System.Windows.Forms.MaskedTextBox txtFechaIni;
-        private System.Windows.Forms.MaskedTextBox txtIdentificacion;
-        private System.Windows.Forms.Button btnReporte;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvDescuentos;
         private System.Windows.Forms.TabControl contenedor;
-        private System.Windows.Forms.TabPage contenDesc;
-        private System.Windows.Forms.TabPage contenIpc;
-        private System.Windows.Forms.DataGridView dgvIpc;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dgvDescuentosTerceros;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnPdfTerceros;
+        private System.Windows.Forms.MaskedTextBox fechaFinTerceros;
+        private System.Windows.Forms.MaskedTextBox fechaIniTerceros;
+        private System.Windows.Forms.Button btnBuscarTerceros;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 

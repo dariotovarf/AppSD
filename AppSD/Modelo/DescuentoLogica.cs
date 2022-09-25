@@ -279,5 +279,67 @@ namespace AppSD.Logica
             }
             return listaIndexada;
         }
+        public List<Descuento> ListarPorTerceros(string fechaIni, string fechaFin)
+        {
+
+
+            List<Descuento> lista = new List<Descuento>();
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                long sumaBase = 0;
+                long sumaDesc = 0;
+                int contador = 0;
+                string idTercero = "";
+                string idTerceroDescuento = "";
+                string queryIdTerceros = "SELECT DISTINCT id FROM descuento WHERE fecha >='"+ fechaIni + "' AND fecha<='"+ fechaFin + "'";
+                SQLiteCommand cmdTerceros = new SQLiteCommand(queryIdTerceros, conexion);
+                cmdTerceros.CommandType = System.Data.CommandType.Text;
+
+                string query = "SELECT * FROM descuento WHERE fecha >='" + fechaIni + "' AND fecha <='" + fechaFin + "'";
+                SQLiteCommand cmdDesc = new SQLiteCommand(query, conexion);
+                cmdDesc.CommandType = System.Data.CommandType.Text;
+
+                using (SQLiteDataReader drId = cmdTerceros.ExecuteReader())
+                {
+                    while (drId.Read())
+                    {
+                        idTercero = drId["id"].ToString();
+                        using (SQLiteDataReader drDesc = cmdDesc.ExecuteReader())
+                        {
+                            while (drDesc.Read())
+                            {
+                                idTerceroDescuento = drDesc["id"].ToString();
+                                if (idTercero.Equals(idTerceroDescuento)){
+                                    lista.Add(new Descuento()
+                                    {
+                                        Fecha = drDesc["fecha"].ToString(),
+                                        Id = drDesc["id"].ToString(),
+                                        Nombre = drDesc["nombre"].ToString(),
+                                        Base = long.Parse(drDesc["base"].ToString()),
+                                        Retencion = long.Parse(drDesc["desc"].ToString()),
+                                    });
+                                    sumaBase += long.Parse(drDesc["base"].ToString());
+                                    sumaDesc += long.Parse(drDesc["desc"].ToString());
+                                    contador += 1;
+                                }
+                            }
+                        }
+                    }
+                    lista.Add(new Descuento()
+                    {
+                        Fecha = "No. Registros",
+                        Id = contador.ToString(),
+                        Nombre = "Total",
+                        Base = sumaBase,
+                        Retencion = sumaDesc,
+                    });
+                    
+                }
+                conexion.Close();
+            }
+            return lista;
+        }
+
     }
 }

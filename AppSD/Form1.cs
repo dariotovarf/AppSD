@@ -48,7 +48,7 @@ namespace AppSD
                 if (lista!= null) { 
 
                 dgvDescuentos.DataSource = null;
-                    dgvDescuentos.DataSource = lista;
+                dgvDescuentos.DataSource = lista;
                 //dgvDescuentos.DataSource = DescuentoLogica.Instancia.Listar(txtFechaIni.Text, txtFechaFin.Text, txtIdentificacion.Text);
                 dgvDescuentos.Columns[0].Width = 75;
                 dgvDescuentos.Columns[1].Width = 80;
@@ -270,8 +270,15 @@ namespace AppSD
                 return (false);
         }
 
-        
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
 
+        }
+
+        private void dgvIpc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }

@@ -29,9 +29,9 @@ namespace AppSD
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contenTotalTerceros = new System.Windows.Forms.TabPage();
             this.contenIpc = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -143,8 +143,8 @@ namespace AppSD
             this.dgvDescuentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDescuentos.Location = new System.Drawing.Point(28, 86);
             this.dgvDescuentos.Name = "dgvDescuentos";
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDescuentos.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDescuentos.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDescuentos.Size = new System.Drawing.Size(916, 199);
             this.dgvDescuentos.TabIndex = 1;
             // 
@@ -214,14 +214,14 @@ namespace AppSD
             // 
             this.dgvIndexados.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvIndexados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvIndexados.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvIndexados.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvIndexados.Location = new System.Drawing.Point(28, 416);
             this.dgvIndexados.Name = "dgvIndexados";
             this.dgvIndexados.Size = new System.Drawing.Size(916, 199);
@@ -335,7 +335,7 @@ namespace AppSD
             this.groupBox4.Controls.Add(this.btnBuscarTerceros);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(34, 19);
+            this.groupBox4.Location = new System.Drawing.Point(33, 6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(916, 74);
             this.groupBox4.TabIndex = 1;
@@ -350,6 +350,7 @@ namespace AppSD
             this.btnPdfTerceros.TabIndex = 11;
             this.btnPdfTerceros.Text = "Reporte PDF";
             this.btnPdfTerceros.UseVisualStyleBackColor = true;
+            this.btnPdfTerceros.Click += new System.EventHandler(this.btnPdfTerceros_Click);
             // 
             // fechaFinTerceros
             // 
@@ -375,6 +376,7 @@ namespace AppSD
             this.btnBuscarTerceros.TabIndex = 6;
             this.btnBuscarTerceros.Text = "Buscar";
             this.btnBuscarTerceros.UseVisualStyleBackColor = true;
+            this.btnBuscarTerceros.Click += new System.EventHandler(this.btnBuscarTerceros_Click);
             // 
             // label7
             // 
@@ -398,10 +400,10 @@ namespace AppSD
             // 
             this.dgvDescuentosTerceros.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvDescuentosTerceros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDescuentosTerceros.Location = new System.Drawing.Point(34, 99);
+            this.dgvDescuentosTerceros.Location = new System.Drawing.Point(33, 86);
             this.dgvDescuentosTerceros.Name = "dgvDescuentosTerceros";
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDescuentosTerceros.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDescuentosTerceros.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDescuentosTerceros.Size = new System.Drawing.Size(916, 199);
             this.dgvDescuentosTerceros.TabIndex = 2;
             // 

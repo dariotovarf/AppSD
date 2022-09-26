@@ -279,6 +279,78 @@ namespace AppSD
         {
 
         }
+
+        private void btnBuscarTerceros_Click(object sender, EventArgs e)
+        {
+            mostrarDescuentosTerceros();
+        }
+
+        public void mostrarDescuentosTerceros()
+        {
+            if (ValidarFecha(fechaIniTerceros.Text) && ValidarFecha(fechaFinTerceros.Text))
+            {
+                List<Descuento> lista = DescuentoLogica.Instancia.ListarPorTerceros(fechaIniTerceros.Text, fechaFinTerceros.Text);
+                if (lista != null)
+                {
+
+                    dgvDescuentosTerceros.DataSource = null;
+                    dgvDescuentosTerceros.DataSource = lista;
+                    //dgvDescuentos.DataSource = DescuentoLogica.Instancia.Listar(txtFechaIni.Text, txtFechaFin.Text, txtIdentificacion.Text);
+                    dgvDescuentosTerceros.Columns[0].Width = 75;
+                    dgvDescuentosTerceros.Columns[1].Width = 80;
+                    dgvDescuentosTerceros.Columns[2].Width = 300;
+                    dgvDescuentosTerceros.Columns[3].Width = 100;
+                    dgvDescuentosTerceros.Columns[4].Width = 100;
+                    dgvDescuentosTerceros.Columns[3].DefaultCellStyle.Format = "#,#0";
+                    dgvDescuentosTerceros.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                    dgvDescuentosTerceros.Columns[4].DefaultCellStyle.Format = "#,#0";
+                    dgvDescuentosTerceros.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    Console.WriteLine("Se imprime Columna");
+                    //      GenerarReporteDescuento();
+
+                    //  MessageBox.Show("Fecha inicial no valida", "Error");
+                }
+                else
+                {
+
+                    MessageBox.Show("No hay registros en la base de datos", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fechas  no validas", "Error");/*
+                if (this.ValidarFecha(txtFechaFin.Text))
+                {
+
+                    MessageBox.Show("Fecha final no valida", "Error");
+                }
+                else
+                {
+                   
+                    
+                    
+
+                }*/
+            }
+
+        }
+
+        private void btnPdfTerceros_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "Reporte Descuentos Sobretasa Deportiva por Terceros";
+            printer.SubTitle = string.Format("Fecha: {0}", DateTime.Now.Date) + "    Periodo: " + fechaIniTerceros.Text + " hasta " + fechaFinTerceros.Text;
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
+                                          StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "---";
+            printer.FooterSpacing = 15;
+            printer.PrintDataGridView(dgvDescuentosTerceros);
+        }
     }
 
 }

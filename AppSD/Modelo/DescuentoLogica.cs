@@ -279,7 +279,7 @@ namespace AppSD.Logica
             }
             return listaIndexada;
         }
-        public List<Descuento> ListarPorTerceros(string fechaIni, string fechaFin)
+        public List<Descuento> ListarPorTerceros(string fechaIniTerceros, string fechaFinTerceros)
         {
 
 
@@ -290,23 +290,34 @@ namespace AppSD.Logica
                 long sumaBase = 0;
                 long sumaDesc = 0;
                 int contador = 0;
+                long sumaBaseTotal = 0;
+                long sumaDescTotal = 0;
+                int contadorTotal = 0;
+
                 string idTercero = "";
                 string idTerceroDescuento = "";
-                string queryIdTerceros = "SELECT DISTINCT id FROM descuento WHERE fecha >='"+ fechaIni + "' AND fecha<='"+ fechaFin + "'";
+                string queryIdTerceros = "SELECT DISTINCT id FROM descuento WHERE fecha >='"+ fechaIniTerceros + "' AND fecha<='"+ fechaFinTerceros + "'";
                 SQLiteCommand cmdTerceros = new SQLiteCommand(queryIdTerceros, conexion);
                 cmdTerceros.CommandType = System.Data.CommandType.Text;
+                Console.WriteLine("consulta de ides");
 
-                string query = "SELECT * FROM descuento WHERE fecha >='" + fechaIni + "' AND fecha <='" + fechaFin + "'";
+                string query = "SELECT * FROM descuento WHERE fecha >='" + fechaIniTerceros + "' AND fecha <='" + fechaFinTerceros + "'";
                 SQLiteCommand cmdDesc = new SQLiteCommand(query, conexion);
                 cmdDesc.CommandType = System.Data.CommandType.Text;
+                
 
                 using (SQLiteDataReader drId = cmdTerceros.ExecuteReader())
                 {
+                   
                     while (drId.Read())
                     {
+                        
                         idTercero = drId["id"].ToString();
                         using (SQLiteDataReader drDesc = cmdDesc.ExecuteReader())
                         {
+                            sumaBase = 0;
+                            sumaDesc = 0;
+                            contador = 0;
                             while (drDesc.Read())
                             {
                                 idTerceroDescuento = drDesc["id"].ToString();
@@ -324,17 +335,27 @@ namespace AppSD.Logica
                                     contador += 1;
                                 }
                             }
+                            lista.Add(new Descuento()
+                            {
+                                Fecha = "No. Registros",
+                                Id = contador.ToString(),
+                                Nombre = "Total",
+                                Base = sumaBase,
+                                Retencion = sumaDesc,
+                            });
+                            sumaBaseTotal += sumaBase;
+                            sumaDescTotal += sumaDesc;
+                            contadorTotal += contador;
                         }
                     }
                     lista.Add(new Descuento()
                     {
-                        Fecha = "No. Registros",
-                        Id = contador.ToString(),
-                        Nombre = "Total",
-                        Base = sumaBase,
-                        Retencion = sumaDesc,
+                        Fecha = "Total Registros",
+                        Id = contadorTotal.ToString(),
+                        Nombre = "Totales",
+                        Base = sumaBaseTotal,
+                        Retencion = sumaDescTotal,
                     });
-                    
                 }
                 conexion.Close();
             }

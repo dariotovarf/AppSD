@@ -24,6 +24,7 @@ namespace AppSD
             
             InitializeComponent();
             LlenarComboBox();
+            LlenarComboBoxTerceros();
             llenarTablaIpc();
         }
 
@@ -31,6 +32,7 @@ namespace AppSD
         {
             
             LlenarComboBox();
+            LlenarComboBoxTerceros();
             llenarTablaIpc();
         }
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -94,6 +96,8 @@ namespace AppSD
         {
 
         }
+
+        //llena el comboBox del formulario descuentos
         public void LlenarComboBox()
         {
             
@@ -101,28 +105,25 @@ namespace AppSD
 
             listaIpc = IpcLogica.Instancia.ListarIPC();
 
-            
-
-            //listaIpc.Insert(0, i);
-
-
-          //  CbIpc = new ComboBox();
             cb.DataSource = null;
             cb.DataSource = listaIpc;
             cb.ValueMember = "Id";
             cb.DisplayMember = "Mes";
-
             
+        }
 
-            // cbIpc.DataSource = listaIpc;
-            /*
-            foreach (var i in listaIpc)
-            {
-                cbIpc.Items.Insert(int.Parse(i.Id.ToString()), i.Mes.ToString());
-            }
-            */
+        //llena el comboBox del formulario descuentos
+        public void LlenarComboBoxTerceros()
+        {
 
+            List<Ipc> listaIpc = new List<Ipc>();
 
+            listaIpc = IpcLogica.Instancia.ListarIPC();
+
+            cbIpcTerceros.DataSource = null;
+            cbIpcTerceros.DataSource = listaIpc;
+            cbIpcTerceros.ValueMember = "Id";
+            cbIpcTerceros.DisplayMember = "Mes";
 
         }
 
@@ -219,7 +220,7 @@ namespace AppSD
         {
 
             DGVPrinter printer = new DGVPrinter();
-            printer.Title = "Reporte Descuentos Sobretasa Deportiva - Indexado";
+            printer.Title = "Reporte Descuentos Sobretasa Deportiva Actualizado";
             printer.SubTitle = string.Format("Fecha: {0}", DateTime.Now.Date) + "    Periodo: " + txtFechaIni.Text + " hasta " + txtFechaFin.Text;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
                                           StringFormatFlags.NoClip;
@@ -350,6 +351,83 @@ namespace AppSD
             printer.Footer = "---";
             printer.FooterSpacing = 15;
             printer.PrintDataGridView(dgvDescuentosTerceros);
+        }
+
+        private void btnBuscarTercAct_Click(object sender, EventArgs e)
+        {
+            if (cbIpcTerceros.SelectedIndex == 0)
+            {
+                MessageBox.Show("Seleccione una opcion", "Error");
+            }
+
+            else
+            {
+                if (ValidarFecha(fechaIniTerceros.Text) && ValidarFecha(fechaFinTerceros.Text))
+                {
+                    // Show();
+                    /*using (formWaiting fwd = new formWaiting(mostrarDescuentosIndexados))
+                    {
+                        fwd.ShowDialog(this);
+                    }*/
+                    mostrarTercerosActualizados();
+                    // Hide();
+                }
+                else
+                {
+
+                    MessageBox.Show("Fechas no validas", "Error");
+
+                }
+            }
+
+        }
+        public void mostrarTercerosActualizados()
+        {
+
+
+            dgvTercerosAct.DataSource = null;
+            dgvTercerosAct.DataSource = DescuentoLogica.Instancia.ListarPorTercerosActualizado(fechaIniTerceros.Text, fechaFinTerceros.Text, cbIpcTerceros.SelectedIndex);
+
+            dgvTercerosAct.Columns[0].Width = 65;
+            dgvTercerosAct.Columns[1].Width = 65;
+            dgvTercerosAct.Columns[2].Width = 250;
+            dgvTercerosAct.Columns[3].Width = 95;
+            dgvTercerosAct.Columns[4].Width = 75;
+            dgvTercerosAct.Columns[5].Width = 75;
+            dgvTercerosAct.Columns[6].Width = 75;
+            dgvTercerosAct.Columns[3].DefaultCellStyle.Format = "#,#0";
+            dgvTercerosAct.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvTercerosAct.Columns[4].DefaultCellStyle.Format = "#,#0";
+            dgvTercerosAct.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvTercerosAct.Columns[5].DefaultCellStyle.Format = "#,#0";
+            dgvTercerosAct.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvTercerosAct.Columns[6].DefaultCellStyle.Format = "#,#0";
+            dgvTercerosAct.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            //  GenerarReporteDescuentoIndexado();
+        }
+
+        private void btnPdfTercAct_Click(object sender, EventArgs e)
+        {
+            GenerarReporteDescuentoTerceroActualizado();
+        }
+
+        public void GenerarReporteDescuentoTerceroActualizado()
+        {
+
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "Reporte Descuentos Sobretasa Deportiva por Tercero - Actualizado";
+            printer.SubTitle = string.Format("Fecha: {0}", DateTime.Now.Date) + "    Periodo: " + fechaIniTerceros.Text + " hasta " + fechaFinTerceros.Text;
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
+                                          StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "---Fin---";
+            printer.FooterSpacing = 15;
+
+            printer.PrintDataGridView(dgvTercerosAct);
         }
     }
 

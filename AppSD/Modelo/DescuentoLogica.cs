@@ -173,8 +173,8 @@ namespace AppSD.Logica
                                             Nombre = drDesc["nombre"].ToString(),
                                             Base = long.Parse(drDesc["base"].ToString()),
                                             Retencion = long.Parse(drDesc["desc"].ToString()),
-                                            Actualizacion = interes,
-                                            Indexado = valorIndexado,
+                                            Actualizacion = Math.Round(interes,0),
+                                            Indexado = Math.Round(valorIndexado,0),
                                         });
 
                                         sumaBase += long.Parse(drDesc["base"].ToString());
@@ -244,8 +244,8 @@ namespace AppSD.Logica
                                             Nombre = drDesc["nombre"].ToString(),
                                             Base = long.Parse(drDesc["base"].ToString()),
                                             Retencion = long.Parse(drDesc["desc"].ToString()),
-                                            Actualizacion = interes,
-                                            Indexado = valorIndexado,
+                                            Actualizacion = Math.Round(interes, 0),
+                                            Indexado = Math.Round(valorIndexado,0),
                                         });
                                         sumaBase += long.Parse(drDesc["base"].ToString());
                                         sumaDesc += long.Parse(drDesc["desc"].ToString());
@@ -443,8 +443,8 @@ namespace AppSD.Logica
                                                     Nombre = drDesc["nombre"].ToString(),
                                                     Base = long.Parse(drDesc["base"].ToString()),
                                                     Retencion = long.Parse(drDesc["desc"].ToString()),
-                                                    Actualizacion = interes,
-                                                    Indexado = valorIndexado,
+                                                    Actualizacion = Math.Round(interes, 0),
+                                                    Indexado = Math.Round(valorIndexado, 0),
                                                 });
                                                 sumaBase += long.Parse(drDesc["base"].ToString());
                                                 sumaDesc += long.Parse(drDesc["desc"].ToString());

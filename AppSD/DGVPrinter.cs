@@ -1648,7 +1648,7 @@ namespace DGVPrinterHelper //AllocationRequest
             // set default fonts
             pagenofont = new Font("Tahoma", 6, FontStyle.Regular, GraphicsUnit.Point);
             pagenocolor = Color.Black;
-            titlefont = new Font("Tahoma", 16, FontStyle.Bold, GraphicsUnit.Point);
+            titlefont = new Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point);
             titlecolor = Color.Black;
             subtitlefont = new Font("Tahoma", 8, FontStyle.Bold, GraphicsUnit.Point);
             subtitlecolor = Color.Black;

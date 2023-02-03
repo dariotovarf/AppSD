@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 using AppSD.Logica;
 using AppSD.Modelo;
 
+
 namespace AppSD
 {
     public partial class Form1 : Form
@@ -51,7 +52,6 @@ namespace AppSD
 
                 dgvDescuentos.DataSource = null;
                 dgvDescuentos.DataSource = lista;
-                //dgvDescuentos.DataSource = DescuentoLogica.Instancia.Listar(txtFechaIni.Text, txtFechaFin.Text, txtIdentificacion.Text);
                 dgvDescuentos.Columns[0].Width = 75;
                 dgvDescuentos.Columns[1].Width = 80;
                 dgvDescuentos.Columns[2].Width = 300;
@@ -59,35 +59,17 @@ namespace AppSD
                 dgvDescuentos.Columns[4].Width = 100;
                 dgvDescuentos.Columns[3].DefaultCellStyle.Format = "#,#0";
                 dgvDescuentos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
                 dgvDescuentos.Columns[4].DefaultCellStyle.Format = "#,#0";
                 dgvDescuentos.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                Console.WriteLine("Columna");
-                //      GenerarReporteDescuento();
-
-              //  MessageBox.Show("Fecha inicial no valida", "Error");
                 }
                 else
                 {
-
                     MessageBox.Show("No hay registros en la base de datos", "Error");
                 }
             }
             else
             {
-                MessageBox.Show("Fechas  no validas", "Error");/*
-                if (this.ValidarFecha(txtFechaFin.Text))
-                {
-
-                    MessageBox.Show("Fecha final no valida", "Error");
-                }
-                else
-                {
-                   
-                    
-                    
-
-                }*/
+                MessageBox.Show("Fechas  no validas", "Error");
             }
             
         }
@@ -129,11 +111,8 @@ namespace AppSD
 
         public void mostrarDescuentosIndexados()
         {
-            
-            
             dgvIndexados.DataSource = null;
             dgvIndexados.DataSource = DescuentoLogica.Instancia.ListarIndexado(txtFechaIni.Text, txtFechaFin.Text, txtIdentificacion.Text, cb.SelectedIndex);
-            
             dgvIndexados.Columns[0].Width = 65;
             dgvIndexados.Columns[1].Width = 65;
             dgvIndexados.Columns[2].Width = 250;
@@ -150,7 +129,7 @@ namespace AppSD
             dgvIndexados.Columns[6].DefaultCellStyle.Format = "#,#0";
             dgvIndexados.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-          //  GenerarReporteDescuentoIndexado();
+          
         }
 
         private void btnIndexar_Click(object sender, EventArgs e)
@@ -158,23 +137,14 @@ namespace AppSD
             if (cb.SelectedIndex==0) {
                 MessageBox.Show("Seleccione una opcion", "Error");
             }
-
             else {
                 if (ValidarFecha(txtFechaIni.Text) && ValidarFecha(txtFechaFin.Text))
                 {
-                    // Show();
-                    /*using (formWaiting fwd = new formWaiting(mostrarDescuentosIndexados))
-                    {
-                        fwd.ShowDialog(this);
-                    }*/
                    mostrarDescuentosIndexados();
-                   // Hide();
                 }
                 else
                 {
-
                     MessageBox.Show("Fechas no validas", "Error");
-
                 }
             }
         }
@@ -187,8 +157,9 @@ namespace AppSD
         private void btnReporte_Click(object sender, EventArgs e)
         {
             DGVPrinter printer = new DGVPrinter();
-            printer.Title = "Reporte Descuentos Sobretasa Deportiva";
-            printer.SubTitle = string.Format("Fecha: {0}", DateTime.Now.Date)+"    Periodo: "+txtFechaIni.Text+" hasta "+txtFechaFin.Text;
+            printer.Title = "Reporte Descuentos Sobretasa Deportiva \nConsolidado";
+            string fecha = "Fecha Reporte: "+ DateTime.Today.Day+ "/"+DateTime.Today.Month+"/"+DateTime.Today.Year+ "    Periodo: " + txtFechaIni.Text + " hasta " + txtFechaFin.Text;
+            printer.SubTitle = fecha;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
                                           StringFormatFlags.NoClip;
             printer.PageNumbers = true;
@@ -203,7 +174,9 @@ namespace AppSD
         public void GenerarReporteDescuento() {
 
             DGVPrinter printer = new DGVPrinter();
-            printer.Title = "Reporte Descuentos Sobretasa Deportiva";
+            printer.Title = "Reporte Descuentos Sobretasa Deportiva - Consolidado";
+          
+
             printer.SubTitle = string.Format("Fecha: {0}", DateTime.Now.Date.ToString("d")) + "    Periodo: " + txtFechaIni.Text + " hasta " + txtFechaFin.Text;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
                                           StringFormatFlags.NoClip;
@@ -220,8 +193,9 @@ namespace AppSD
         {
 
             DGVPrinter printer = new DGVPrinter();
-            printer.Title = "Reporte Descuentos Sobretasa Deportiva Actualizado";
-            printer.SubTitle = string.Format("Fecha: {0}", DateTime.Now.Date) + "    Periodo: " + txtFechaIni.Text + " hasta " + txtFechaFin.Text;
+            printer.Title = "Reporte Descuentos Sobretasa Deportiva Actualizado \nConsolidado\n Actualizado al mes de agosto de 2022";
+            string fecha = "Fecha Reporte: " + DateTime.Today.Day + "/" + DateTime.Today.Month + "/" + DateTime.Today.Year + "    Periodo: " + txtFechaIni.Text + " hasta " + txtFechaFin.Text;
+            printer.SubTitle = fecha;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
                                           StringFormatFlags.NoClip;
             printer.PageNumbers = true;
@@ -230,6 +204,7 @@ namespace AppSD
             printer.HeaderCellAlignment = StringAlignment.Near;
             printer.Footer = "---Fin---";
             printer.FooterSpacing = 15;
+            
             
             printer.PrintDataGridView(dgvIndexados);
         }
@@ -251,7 +226,6 @@ namespace AppSD
             dgvIpc.Columns[1].Width = 150;
             dgvIpc.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvIpc.Columns[2].Width = 150;
-
             dgvIpc.Columns[2].DefaultCellStyle.Format = "#,#0.00";
             dgvIpc.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
@@ -296,7 +270,6 @@ namespace AppSD
 
                     dgvDescuentosTerceros.DataSource = null;
                     dgvDescuentosTerceros.DataSource = lista;
-                    //dgvDescuentos.DataSource = DescuentoLogica.Instancia.Listar(txtFechaIni.Text, txtFechaFin.Text, txtIdentificacion.Text);
                     dgvDescuentosTerceros.Columns[0].Width = 75;
                     dgvDescuentosTerceros.Columns[1].Width = 80;
                     dgvDescuentosTerceros.Columns[2].Width = 300;
@@ -304,13 +277,9 @@ namespace AppSD
                     dgvDescuentosTerceros.Columns[4].Width = 100;
                     dgvDescuentosTerceros.Columns[3].DefaultCellStyle.Format = "#,#0";
                     dgvDescuentosTerceros.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
                     dgvDescuentosTerceros.Columns[4].DefaultCellStyle.Format = "#,#0";
                     dgvDescuentosTerceros.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    Console.WriteLine("Se imprime Columna");
-                    //      GenerarReporteDescuento();
-
-                    //  MessageBox.Show("Fecha inicial no valida", "Error");
+                    
                 }
                 else
                 {
@@ -320,19 +289,8 @@ namespace AppSD
             }
             else
             {
-                MessageBox.Show("Fechas  no validas", "Error");/*
-                if (this.ValidarFecha(txtFechaFin.Text))
-                {
-
-                    MessageBox.Show("Fecha final no valida", "Error");
-                }
-                else
-                {
-                   
-                    
-                    
-
-                }*/
+                MessageBox.Show("Fechas  no validas", "Error");
+                
             }
 
         }
@@ -340,8 +298,9 @@ namespace AppSD
         private void btnPdfTerceros_Click(object sender, EventArgs e)
         {
             DGVPrinter printer = new DGVPrinter();
-            printer.Title = "Reporte Descuentos Sobretasa Deportiva por Terceros";
-            printer.SubTitle = string.Format("Fecha: {0}", DateTime.Now.Date) + "    Periodo: " + fechaIniTerceros.Text + " hasta " + fechaFinTerceros.Text;
+            printer.Title = "Reporte Descuentos Sobretasa Deportiva por Terceros \nConsolidado";
+            string fecha = "Fecha Reporte: " + DateTime.Today.Day + "/" + DateTime.Today.Month + "/" + DateTime.Today.Year + "    Periodo: " + fechaIniTerceros.Text + " hasta " + fechaFinTerceros.Text;
+            printer.SubTitle = fecha;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
                                           StringFormatFlags.NoClip;
             printer.PageNumbers = true;
@@ -364,13 +323,9 @@ namespace AppSD
             {
                 if (ValidarFecha(fechaIniTerceros.Text) && ValidarFecha(fechaFinTerceros.Text))
                 {
-                    // Show();
-                    /*using (formWaiting fwd = new formWaiting(mostrarDescuentosIndexados))
-                    {
-                        fwd.ShowDialog(this);
-                    }*/
+                    
                     mostrarTercerosActualizados();
-                    // Hide();
+                    
                 }
                 else
                 {
@@ -387,7 +342,6 @@ namespace AppSD
 
             dgvTercerosAct.DataSource = null;
             dgvTercerosAct.DataSource = DescuentoLogica.Instancia.ListarPorTercerosActualizado(fechaIniTerceros.Text, fechaFinTerceros.Text, cbIpcTerceros.SelectedIndex);
-
             dgvTercerosAct.Columns[0].Width = 65;
             dgvTercerosAct.Columns[1].Width = 65;
             dgvTercerosAct.Columns[2].Width = 250;
@@ -404,7 +358,7 @@ namespace AppSD
             dgvTercerosAct.Columns[6].DefaultCellStyle.Format = "#,#0";
             dgvTercerosAct.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-            //  GenerarReporteDescuentoIndexado();
+           
         }
 
         private void btnPdfTercAct_Click(object sender, EventArgs e)
@@ -416,8 +370,9 @@ namespace AppSD
         {
 
             DGVPrinter printer = new DGVPrinter();
-            printer.Title = "Reporte Descuentos Sobretasa Deportiva por Tercero - Actualizado";
-            printer.SubTitle = string.Format("Fecha: {0}", DateTime.Now.Date) + "    Periodo: " + fechaIniTerceros.Text + " hasta " + fechaFinTerceros.Text;
+            printer.Title = "Reporte Descuentos Sobretasa Deportiva por Terceros Actualizado \nConsolidado\n Actualizado al mes de agosto de 2022";
+            string fecha = "Fecha Reporte: " + DateTime.Today.Day + "/" + DateTime.Today.Month + "/" + DateTime.Today.Year + "    Periodo: " + fechaIniTerceros.Text + " hasta " + fechaFinTerceros.Text;
+            printer.SubTitle = fecha;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
                                           StringFormatFlags.NoClip;
             printer.PageNumbers = true;
@@ -428,6 +383,41 @@ namespace AppSD
             printer.FooterSpacing = 15;
 
             printer.PrintDataGridView(dgvTercerosAct);
+        }
+
+        private void btnReporteExcel_Click(object sender, EventArgs e)
+        {
+            if (dgvIndexados!= null)
+            {
+                ExportarDataGridViewExcel(dgvIndexados);
+            }
+        }
+        private void ExportarDataGridViewExcel(DataGridView grd)
+        {
+            SaveFileDialog fichero = new SaveFileDialog();
+            fichero.Filter = "Excel (*.xls)|*.xls";
+            if (fichero.ShowDialog() == DialogResult.OK)
+            {
+                Microsoft.Office.Interop.Excel.Application aplicacion;
+                Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
+                Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
+                aplicacion = new Microsoft.Office.Interop.Excel.Application();
+                libros_trabajo = aplicacion.Workbooks.Add();
+                hoja_trabajo =
+                    (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+                //Recorremos el DataGridView rellenando la hoja de trabajo
+                for (int i = 0; i < grd.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < grd.Columns.Count; j++)
+                    {
+                        hoja_trabajo.Cells[i + 1, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                libros_trabajo.SaveAs(fichero.FileName,
+                    Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+                libros_trabajo.Close(true);
+                aplicacion.Quit();
+            }
         }
     }
 
